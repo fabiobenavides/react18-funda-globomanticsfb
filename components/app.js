@@ -3,10 +3,6 @@ import Banner from './banner'
 
 export default function App() {
   return (
-    <>
-      <Banner headerText="Getting text as props"/>
-      <Banner headerText="second banner just for testing"/>
-    </>
-    
+      <Banner>Getting text as props</Banner>
   )
 }
