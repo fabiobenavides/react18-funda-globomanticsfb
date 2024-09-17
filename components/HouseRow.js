@@ -1,7 +1,7 @@
 import currencyFormatter from '@/helpers/currencyFormatter'
 import React from 'react'
 
-export default function HouseRow({house}) {
+export default function HouseRow({ house }) {
   return (
     <tr>
         <td>{house.address}</td>
