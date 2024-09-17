@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import HouseRow from './HouseRow';
 
 const houseArray = [
@@ -18,6 +18,21 @@ const houseArray = [
   
 
 export default function HouseList() {
+
+  const [houses, setHouses] = useState(houseArray);
+  const [counter, setCounter] = useState(0);
+
+  const addHouse = () => {
+    setHouses([...houses, {
+      id: counter,
+      address: counter + "90210 Beverly Hills",
+      country: "Los Angeles",
+      price: 250000,
+    }]);
+    setCounter(current => counter + 1); //use current is recommended
+  }
+  
+
   return (
     <>
       <div className="row mb-2">
@@ -34,11 +49,14 @@ export default function HouseList() {
           </tr>
         </thead>
         <tbody>
-            {houseArray.map(h => (
+            {houses.map(h => (
                 <HouseRow key={h.id} house={h} />
             ))}
         </tbody>
       </table>
+      <button className='btn btn-primary' onClick={addHouse}>
+            Add a new house
+      </button>
     </>
   )
 }
