@@ -11,8 +11,8 @@ const HouseRow = ({ house }) => {
   )
 }
 
-const HouseRowMem = React.memo(HouseRow); //This will provide cache, but use it with carefully, read doc before using it
+//const HouseRowMem = React.memo(HouseRow); //This will provide cache, but use it with carefully, read doc before using it
 //Where we are using the component:  HouseRow just replace it by: HouseRowMem
 
 export default HouseRow;
-export { HouseRowMem }
+//export { HouseRowMem }

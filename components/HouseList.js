@@ -1,26 +1,19 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import HouseRow from './HouseRow';
-
-const houseArray = [
-    {
-      id: 1,
-      address: "12 Valley of Kings, Geneva",
-      country: "Switzerland",
-      price: 900000,
-    },
-    {
-      id: 2,
-      address: "89 Road of Forks, Bern",
-      country: "Switzerland",
-      price: 500000,
-    },
-  ];
-  
 
 export default function HouseList() {
 
-  const [houses, setHouses] = useState(houseArray);
+  const [houses, setHouses] = useState([]);
   const [counter, setCounter] = useState(0);
+
+  useEffect(() => {
+    const fetchHouses = async () => {
+      const response = await fetch("/api/houses");
+      const houses = await response.json();
+      setHouses(houses);
+    };
+    fetchHouses();
+  }, []); //This will fire the effect just once
 
   const addHouse = () => {
     setHouses([...houses, {
