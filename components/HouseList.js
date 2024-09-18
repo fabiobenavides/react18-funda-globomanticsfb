@@ -13,7 +13,7 @@ export default function HouseList() {
       setHouses(houses);
     };
     fetchHouses();
-  }, []); //This will fire the effect just once
+  }, []); //The dependency "[]" will fire the effect just once, remove it and it will keep running
 
   const addHouse = () => {
     setHouses([...houses, {
