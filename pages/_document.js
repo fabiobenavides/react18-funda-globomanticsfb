@@ -4,11 +4,11 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <link 
-          href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-          rel="stylescheet" 
+      <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
         />
-        <link href="css/globals.css" rel="stylescheet"/>
+        <link rel="stylesheet" href="css/globals.css" />
       </Head>
       <body>
         <div className="container">

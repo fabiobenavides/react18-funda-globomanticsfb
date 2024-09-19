@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import HouseRow from './HouseRow';
 
-export default function HouseList() {
+export default function HouseList({ selectHouse }) {
 
   const [houses, setHouses] = useState([]);
   const [counter, setCounter] = useState(0);
@@ -43,7 +43,7 @@ export default function HouseList() {
         </thead>
         <tbody>
             {houses.map(h => (
-                <HouseRow key={h.id} house={h} />
+                <HouseRow key={h.id} house={h} selectHouse={selectHouse} />
             ))}
         </tbody>
       </table>
