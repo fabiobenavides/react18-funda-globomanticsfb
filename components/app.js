@@ -7,6 +7,11 @@ export default function App() {
 
   const [selectedHouse, setSelectedHouse] = useState();
 
+  const setSelectedHousewrapper = (house) => {
+    //add checks to verify tha the object is a real house
+    setSelectedHouse(house);
+  }
+
   return (
     <div>
       <Banner>
@@ -14,7 +19,7 @@ export default function App() {
       </Banner>
       { selectedHouse
         ? <House house={selectedHouse} />
-        : <HouseList selectHouse={setSelectedHouse} />
+        : <HouseList selectHouse={setSelectedHousewrapper} />
       }
     </div>
   )

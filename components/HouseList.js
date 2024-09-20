@@ -1,19 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import useHouses from '@/hooks/useHouses';
 import HouseRow from './HouseRow';
 
 export default function HouseList({ selectHouse }) {
 
-  const [houses, setHouses] = useState([]);
-  const [counter, setCounter] = useState(0);
-
-  useEffect(() => {
-    const fetchHouses = async () => {
-      const response = await fetch("/api/houses");
-      const houses = await response.json();
-      setHouses(houses);
-    };
-    fetchHouses();
-  }, []); //The dependency "[]" will fire the effect just once, remove it and it will keep running
+  const { houses, setHouses } = useHouses();  
 
   const addHouse = () => {
     setHouses([...houses, {
