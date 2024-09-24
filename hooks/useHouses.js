@@ -1,18 +1,20 @@
 import { useEffect, useState } from "react";
+import useGetRequest from "./useGetRequest";
 
 const useHouses = () => {
     const [houses, setHouses] = useState([]);
+    const { get, loadingState } = useGetRequest("/api/houses");
 
   useEffect(() => {
     const fetchHouses = async () => {
-      const response = await fetch("/api/houses");
-      const houses = await response.json();
-      setHouses(houses);
+
+        const houses = await get();
+        setHouses(houses);
     };
     fetchHouses();
-  }, []); //The dependency "[]" will fire the effect just once, remove it and it will keep running
+  }, [get]); //The dependency "[]" will fire the effect just once, remove it and it will keep running
 
-  return { houses, setHouses }
+  return { houses, setHouses, loadingState }
 };
 
 export default useHouses;
